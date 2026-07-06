@@ -6,6 +6,7 @@ export default function PrescriptionBody({
   medicines,
   onRemoveMedicine,
   advice,
+  excercise,
   followUp,
 }) {
   const filledMedicines = medicines.filter((m) => m.name.trim() !== '')
@@ -27,6 +28,13 @@ export default function PrescriptionBody({
             <p className="k">Advice</p>
             <p className="v">
               {advice || <span className="rx-empty">None</span>}
+            </p>
+          </div>
+
+          <div className="rx-section rx-section--tight">
+            <p className="k">Excercise</p>
+            <p className="v">
+              {excercise || <span className="rx-empty">None</span>}
             </p>
           </div>
 
@@ -57,7 +65,7 @@ export default function PrescriptionBody({
                       <div className="rx-med-detail">
                         {[m.dose, m.frequency, m.duration, m.note]
                           .filter(Boolean)
-                          .join(' · ')}
+                          .join(" · ")}
                       </div>
                     </div>
                     <button
@@ -76,5 +84,5 @@ export default function PrescriptionBody({
         </div>
       </div>
     </div>
-  )
+  );
 }

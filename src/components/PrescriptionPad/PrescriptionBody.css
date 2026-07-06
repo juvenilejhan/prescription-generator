@@ -7,7 +7,7 @@
 .rx-watermark {
   position: absolute;
   top: 4px;
-  left: 4px;
+  left: 240px;
   font-family: var(--font-display);
   font-size: 110px;
   font-weight: 600;

@@ -6,6 +6,7 @@ import DiagnosisForm from "./components/DiagnosisForm/DiagnosisForm";
 import MedicineForm from "./components/MedicineForm/MedicineForm";
 import AdviceForm from "./components/AdviceForm/AdviceForm";
 import FollowUpForm from "./components/FollowUpForm/FollowUpForm";
+import ExcerciseForm from "./components/ExcerciseForm/ExcerciseForm";
 import ActionButtons from "./components/ActionButtons/ActionButtons";
 import PrescriptionPad from "./components/PrescriptionPad/PrescriptionPad";
 
@@ -30,6 +31,7 @@ export default function App() {
   const [medicines, setMedicines] = useState([]);
 
   const [advice, setAdvice] = useState("");
+  const [excercise, setExcercise] = useState("");
   const [followUp, setFollowUp] = useState("");
 
   const updatePatient = (key, value) =>
@@ -63,6 +65,7 @@ export default function App() {
             onAdd={addMedicine}
           />
           <AdviceForm value={advice} onChange={setAdvice} />
+          <ExcerciseForm value={excercise} onChange={setExcercise} />
           <FollowUpForm value={followUp} onChange={setFollowUp} />
           <ActionButtons onPrint={handlePrint} />
         </div>
@@ -74,6 +77,7 @@ export default function App() {
             medicines={medicines}
             onRemoveMedicine={removeMedicine}
             advice={advice}
+            excercise={excercise}
             followUp={followUp}
           />
         </div>
