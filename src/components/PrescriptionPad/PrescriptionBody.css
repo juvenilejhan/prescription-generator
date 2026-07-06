@@ -1,0 +1,147 @@
+.rx-body {
+  position: relative;
+  margin-top: 16px;
+  min-height: 180px;
+}
+
+.rx-watermark {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-family: var(--font-display);
+  font-size: 110px;
+  font-weight: 600;
+  color: var(--gold-soft);
+  opacity: 0.25;
+  line-height: 1;
+  user-select: none;
+  z-index: 0;
+}
+
+.rx-body-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* Clearfix — without this, the floated columns below wouldn't
+   contribute to rx-body's height and the signature block would
+   overlap them. */
+.rx-body-grid::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.rx-body-left {
+  float: left;
+  width: calc(2 / 6 * 100% - 12px);
+  box-sizing: border-box;
+  padding-right: 16px;
+  border-right: 1px solid var(--paper-line);
+}
+
+.rx-body-right {
+  float: right;
+  width: calc(4 / 6 * 100%);
+  box-sizing: border-box;
+  padding-left: 4px;
+}
+
+.rx-section {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 14px;
+}
+
+/* Diagnosis, advice, and follow-up are short blocks — keep each one
+   intact across a page break. The medicines section is deliberately
+   excluded here since it should be free to flow across pages; only
+   individual rx-med-item rows are protected below. */
+.rx-section--tight {
+  break-inside: avoid;
+}
+
+.rx-section .k {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--teal);
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.rx-section .v {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  white-space: pre-wrap;
+}
+
+.rx-med-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rx-med-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--paper-line);
+  break-inside: avoid;
+}
+
+.rx-med-item:last-child {
+  border-bottom: none;
+}
+
+.rx-med-content {
+  flex: 1;
+}
+
+.rx-med-remove {
+  border: none;
+  background: none;
+  color: var(--ink-faint);
+  font-size: 11.5px;
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+
+.rx-med-remove:hover {
+  color: var(--danger);
+}
+
+/* The remove control only makes sense on screen — it must never
+   appear on a printed or exported prescription. */
+@media print {
+  .rx-med-remove {
+    display: none !important;
+  }
+}
+
+.rx-med-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 14px;
+  min-width: 18px;
+}
+
+.rx-med-name {
+  font-weight: 500;
+  font-size: 14.5px;
+}
+
+.rx-med-detail {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.rx-empty {
+  font-size: 13px;
+  color: var(--ink-faint);
+  font-style: italic;
+}

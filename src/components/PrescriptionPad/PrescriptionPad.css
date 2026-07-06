@@ -1,0 +1,34 @@
+.rx-pad {
+  width: 100%;
+  max-width: 700px;
+  background: var(--paper);
+  border: 1px solid var(--paper-line);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  padding: 40px 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Every piece of filled-in text on the pad (patient fields, diagnosis,
+   medicines, advice, follow-up, doctor credentials) should wrap onto a
+   new line rather than overflow its column or get clipped, no matter
+   how long a single word or value is. */
+.rx-pad * {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+@media print {
+  .rx-pad {
+    box-shadow: none;
+    border: none;
+    max-width: none;
+    width: 210mm;
+    min-height: 297mm;
+    box-sizing: border-box;
+    padding: 12mm 12mm;
+    margin: 0 auto;
+    overflow: visible;
+  }
+}

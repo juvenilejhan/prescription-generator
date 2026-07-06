@@ -1,0 +1,27 @@
+.app-header {
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--paper-line);
+  background: var(--paper);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.app-header h1 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--teal-deep);
+}
+
+.app-header span {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+@media print {
+  .app-header {
+    display: none !important;
+  }
+}

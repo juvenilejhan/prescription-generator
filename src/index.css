@@ -1,0 +1,53 @@
+:root {
+  --ink: #1c1f1e;
+  --ink-soft: #565f5b;
+  --ink-faint: #8b938e;
+  --teal: #0b5d52;
+  --teal-deep: #073f38;
+  --paper: #fefdfb;
+  --paper-line: #e7e2d6;
+  --panel: #f4f2ec;
+  --sage: #6f8f86;
+  --gold: #a8863d;
+  --gold-soft: #d9c79a;
+  --danger: #b3432b;
+
+  --font-display: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  --font-bn-serif: 'Noto Serif Bengali', serif;
+  --font-bn-sans: 'Noto Sans Bengali', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--panel);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}

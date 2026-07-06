@@ -1,0 +1,29 @@
+.rx-patient-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.3fr;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+  break-inside: avoid;
+}
+
+.rx-patient-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.rx-patient-field .k {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  margin-bottom: 3px;
+}
+
+.rx-patient-field .v {
+  font-size: 13.5px;
+  border-bottom: 1px dotted var(--paper-line);
+  padding-bottom: 4px;
+  min-height: 18px;
+}

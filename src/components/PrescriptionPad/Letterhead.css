@@ -1,0 +1,86 @@
+.rx-letterhead {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  break-inside: avoid;
+}
+
+.rx-tagline-bn {
+  font-family: var(--font-bn-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teal);
+  margin: 0 0 10px;
+}
+
+.rx-header-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 20px;
+  text-align: left;
+}
+
+.rx-header-divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--gold-soft);
+}
+
+.rx-header-col--bn {
+  text-align: right;
+  font-family: var(--font-bn-sans);
+}
+
+.rx-header-col--en {
+  text-align: left;
+  font-family: var(--font-sans);
+}
+
+.rx-doc-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.rx-header-col--bn .rx-doc-name {
+  font-family: var(--font-bn-serif);
+}
+
+.rx-header-col--en .rx-doc-name {
+  font-family: var(--font-display);
+}
+
+.rx-doc-title {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 4px;
+}
+
+.rx-doc-credentials {
+  font-size: 10.5px;
+  color: var(--ink-faint);
+  line-height: 1.55;
+  margin: 0 0 2px;
+}
+
+.rx-affiliation {
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin: 8px 0 0;
+  font-style: italic;
+}
+
+.rx-rule {
+  height: 2px;
+  margin: 12px 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--gold) 15%,
+    var(--gold) 85%,
+    transparent
+  );
+}
