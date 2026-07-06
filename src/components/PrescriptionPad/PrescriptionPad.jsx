@@ -22,7 +22,7 @@ export default function PrescriptionPad({
         medicines={medicines}
         onRemoveMedicine={onRemoveMedicine}
         advice={advice}
-        excercise={exercise}
+        exercise={exercise}
         followUp={followUp}
       />
       <Signature />

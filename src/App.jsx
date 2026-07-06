@@ -77,7 +77,7 @@ export default function App() {
             medicines={medicines}
             onRemoveMedicine={removeMedicine}
             advice={advice}
-            excercise={exercise}
+            exercise={exercise}
             followUp={followUp}
           />
         </div>
