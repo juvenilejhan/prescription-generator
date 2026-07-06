@@ -1,4 +1,4 @@
-import './Letterhead.css'
+import "./Letterhead.css";
 
 export default function Letterhead() {
   return (
@@ -15,12 +15,12 @@ export default function Letterhead() {
               সহকারি অধ্যাপক · পোস্ট ডক্ট স্কলার (হেলথ সায়েন্স)
             </p>
             <p className="rx-doc-credentials">
-              পিএইচডি (পিটি) ভারত · এম পি এইচ (ইপিডিমিওলজি) · এম পিটি
-              (অর্থোপেডিক) বিডি
+              পিএইচডি (পিটি) ভারত · এম পি এইচ (ইপিডিমিওলজি)  <br />
+              এম পিটি (অর্থোপেডিক) বিডি
             </p>
             <p className="rx-doc-credentials">
-              ফেলোশিপ ইন অর্থোপেডিক রিহ্যাবিলিটেশন (ইউ কে) · পিজি সার্টিফিকেট
-              ইন মাসকিউলোস্কেলেটাল আল্ট্রাসাউন্ড (বিডি)
+              ফেলোশিপ ইন অর্থোপেডিক রিহ্যাবিলিটেশন (ইউ কে) · পিজি সার্টিফিকেট ইন
+              মাসকিউলোস্কেলেটাল আল্ট্রাসাউন্ড (বিডি)
             </p>
           </div>
 
@@ -50,5 +50,5 @@ export default function Letterhead() {
 
       <div className="rx-rule" />
     </>
-  )
+  );
 }
