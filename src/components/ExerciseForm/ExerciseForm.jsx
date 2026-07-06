@@ -1,5 +1,5 @@
 import '../../styles/forms.css'
-import "./ExcerciseForm.css";
+import "./ExerciseForm.css";
 
 export default function ExcerciseForm({ value, onChange }) {
   return (

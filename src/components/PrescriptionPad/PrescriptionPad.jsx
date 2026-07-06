@@ -10,7 +10,7 @@ export default function PrescriptionPad({
   medicines,
   onRemoveMedicine,
   advice,
-  excercise,
+  exercise,
   followUp,
 }) {
   return (
@@ -22,7 +22,7 @@ export default function PrescriptionPad({
         medicines={medicines}
         onRemoveMedicine={onRemoveMedicine}
         advice={advice}
-        excercise={excercise}
+        excercise={exercise}
         followUp={followUp}
       />
       <Signature />
