@@ -8,7 +8,7 @@
 .rx-tagline-bn {
   font-family: var(--font-bn-serif);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 900;
   color: var(--teal);
   margin: 0 0 10px;
 }
@@ -38,10 +38,11 @@
 }
 
 .rx-doc-name {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 900;
   color: var(--ink);
   margin: 0 0 4px;
+  color: #470e21;
 }
 
 .rx-header-col--bn .rx-doc-name {
@@ -54,14 +55,14 @@
 
 .rx-doc-title {
   font-size: 12px;
-  font-style: italic;
-  color: var(--ink-soft);
+  /* font-style: italic; */
+  color: black;
   margin: 0 0 4px;
 }
 
 .rx-doc-credentials {
   font-size: 10.5px;
-  color: var(--ink-faint);
+  color: rgb(0, 0, 0);
   line-height: 1.55;
   margin: 0 0 2px;
 }
@@ -70,7 +71,9 @@
   font-size: 11px;
   color: var(--ink-faint);
   margin: 8px 0 0;
-  font-style: italic;
+  /* font-style: italic; */
+  color: #0b5d52;
+  font-weight: 600;
 }
 
 .rx-rule {
