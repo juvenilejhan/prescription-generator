@@ -1,10 +1,10 @@
 import '../../styles/forms.css'
-import "./ExerciseForm.css";
+import "./ExaminationForm.css";
 
 export default function ExcerciseForm({ value, onChange }) {
   return (
-    <div className="field-group excercise-form">
-      <label className="group-label">Exercise</label>
+    <div className="field-group examination-form">
+      <label className="group-label">Examination</label>
       <div className="field">
         <textarea
           value={value}

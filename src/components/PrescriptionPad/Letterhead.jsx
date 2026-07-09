@@ -34,7 +34,7 @@ export default function Letterhead() {
               Postdoc Scholar (Health Science), PhD (PT) India
             </p>
             <p className="rx-doc-credentials">
-              MPH (Epidemiology) · MPT (Orthopedic) BD
+              MPH (Epidemiology), MPT (Orthopedic) BD
             </p>
             <p className="rx-doc-credentials">
               Fellowship in Orthopedic Rehabilitation (UK) <br /> PG Certificate

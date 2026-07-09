@@ -2,12 +2,14 @@ import { formatDate } from '../../utils/prescription'
 import './PrescriptionBody.css'
 
 export default function PrescriptionBody({
+  chiefComplaint,
+  examination,
+  history,
+  advice,
   diagnosis,
+  followUp,
   medicines,
   onRemoveMedicine,
-  advice,
-  exercise,
-  followUp,
 }) {
   const filledMedicines = medicines.filter((m) => m.name.trim() !== '')
 
@@ -18,9 +20,21 @@ export default function PrescriptionBody({
       <div className="rx-body-grid">
         <div className="rx-body-left">
           <div className="rx-section rx-section--tight">
-            <p className="k">Diagnosis</p>
+            <p className="k">C/C</p>
             <p className="v">
-              {diagnosis || <span className="rx-empty">Not specified</span>}
+              {chiefComplaint || <span className="rx-empty">Not specified</span>}
+            </p>
+          </div>
+          <div className="rx-section rx-section--tight">
+            <p className="k">O/E</p>
+            <p className="v">
+              {examination || <span className="rx-empty">Not specified</span>}
+            </p>
+          </div>
+          <div className="rx-section rx-section--tight">
+            <p className="k">H/O</p>
+            <p className="v">
+              {history || <span className="rx-empty">Not specified</span>}
             </p>
           </div>
 
@@ -30,11 +44,10 @@ export default function PrescriptionBody({
               {advice || <span className="rx-empty">None</span>}
             </p>
           </div>
-
           <div className="rx-section rx-section--tight">
-            <p className="k">Exercise</p>
+            <p className="k">Diagnosis</p>
             <p className="v">
-              {exercise || <span className="rx-empty">None</span>}
+              {diagnosis || <span className="rx-empty">Not specified</span>}
             </p>
           </div>
 

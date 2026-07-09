@@ -2,11 +2,13 @@ import { useState } from "react";
 
 import Header from "./components/Header/Header";
 import PatientForm from "./components/PatientForm/PatientForm";
-import DiagnosisForm from "./components/DiagnosisForm/DiagnosisForm";
-import MedicineForm from "./components/MedicineForm/MedicineForm";
+import ChiefComplaintForm from "./components/ChiefComplaintForm/ChiefComplaintForm";
+import ExaminationForm from "./components/ExaminationForm/ExaminationForm";
+import HistoryForm from "./components/HistoryForm/HistoryForm";
 import AdviceForm from "./components/AdviceForm/AdviceForm";
+import DiagnosisForm from "./components/DiagnosisForm/DiagnosisForm";
 import FollowUpForm from "./components/FollowUpForm/FollowUpForm";
-import ExerciseForm from "./components/ExerciseForm/ExerciseForm";
+import MedicineForm from "./components/MedicineForm/MedicineForm";
 import ActionButtons from "./components/ActionButtons/ActionButtons";
 import PrescriptionPad from "./components/PrescriptionPad/PrescriptionPad";
 
@@ -21,7 +23,12 @@ export default function App() {
     contact: "",
     date: todayISO(),
   });
+  const [chiefComplaint, setChiefComplaint] = useState("");
+  const [examination, setExamination] = useState("");
+  const [history, setHistory] = useState("");
+  const [advice, setAdvice] = useState("");
   const [diagnosis, setDiagnosis] = useState("");
+  const [followUp, setFollowUp] = useState("");
 
   // `draftMedicine` is the single composer field set in the form panel.
   // `medicines` is the committed list that actually appears on the
@@ -29,10 +36,6 @@ export default function App() {
   // clicked.
   const [draftMedicine, setDraftMedicine] = useState(emptyMedicine());
   const [medicines, setMedicines] = useState([]);
-
-  const [advice, setAdvice] = useState("");
-  const [exercise, setExercise] = useState("");
-  const [followUp, setFollowUp] = useState("");
 
   const updatePatient = (key, value) =>
     setPatient((p) => ({ ...p, [key]: value }));
@@ -58,27 +61,34 @@ export default function App() {
       <div className="layout">
         <div className="form-panel">
           <PatientForm patient={patient} onChange={updatePatient} />
+          <ChiefComplaintForm
+            value={chiefComplaint}
+            onChange={setChiefComplaint}
+          />
+          <ExaminationForm value={examination} onChange={setExamination} />
+          <HistoryForm value={history} onChange={setHistory} />
+          <AdviceForm value={advice} onChange={setAdvice} />
           <DiagnosisForm value={diagnosis} onChange={setDiagnosis} />
+          <FollowUpForm value={followUp} onChange={setFollowUp} />
           <MedicineForm
             medicine={draftMedicine}
             onChange={updateDraftMedicine}
             onAdd={addMedicine}
           />
-          <AdviceForm value={advice} onChange={setAdvice} />
-          <ExerciseForm value={exercise} onChange={setExercise} />
-          <FollowUpForm value={followUp} onChange={setFollowUp} />
           <ActionButtons onPrint={handlePrint} />
         </div>
 
         <div className="preview-panel">
           <PrescriptionPad
             patient={patient}
+            chiefComplaint={chiefComplaint}
+            examination={examination}
+            history={history}
+            advice={advice}
             diagnosis={diagnosis}
+            followUp={followUp}
             medicines={medicines}
             onRemoveMedicine={removeMedicine}
-            advice={advice}
-            exercise={exercise}
-            followUp={followUp}
           />
         </div>
       </div>
