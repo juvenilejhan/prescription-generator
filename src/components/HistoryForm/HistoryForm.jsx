@@ -9,7 +9,7 @@ export default function ExcerciseForm({ value, onChange }) {
         <textarea
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          placeholder="e.g. Quadriceps strengthening with resistance band"
+          placeholder="e.g. Recurrent neck pain for 6 months, worse with desk work, no radiation"
         />
       </div>
     </div>

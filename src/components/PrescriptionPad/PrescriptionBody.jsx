@@ -1,5 +1,5 @@
-import { formatDate } from '../../utils/prescription'
-import './PrescriptionBody.css'
+import { formatDate } from "../../utils/prescription";
+import "./PrescriptionBody.css";
 
 export default function PrescriptionBody({
   chiefComplaint,
@@ -11,7 +11,7 @@ export default function PrescriptionBody({
   medicines,
   onRemoveMedicine,
 }) {
-  const filledMedicines = medicines.filter((m) => m.name.trim() !== '')
+  const filledMedicines = medicines.filter((m) => m.name.trim() !== "");
 
   return (
     <div className="rx-body">
@@ -22,7 +22,9 @@ export default function PrescriptionBody({
           <div className="rx-section rx-section--tight">
             <p className="k">C/C</p>
             <p className="v">
-              {chiefComplaint || <span className="rx-empty">Not specified</span>}
+              {chiefComplaint || (
+                <span className="rx-empty">Not specified</span>
+              )}
             </p>
           </div>
           <div className="rx-section rx-section--tight">
@@ -39,15 +41,15 @@ export default function PrescriptionBody({
           </div>
 
           <div className="rx-section rx-section--tight">
-            <p className="k">Advice</p>
-            <p className="v">
-              {advice || <span className="rx-empty">None</span>}
-            </p>
-          </div>
-          <div className="rx-section rx-section--tight">
             <p className="k">Diagnosis</p>
             <p className="v">
               {diagnosis || <span className="rx-empty">Not specified</span>}
+            </p>
+          </div>
+          <div className="rx-section rx-section--tight">
+            <p className="k">Advice</p>
+            <p className="v">
+              {advice || <span className="rx-empty">None</span>}
             </p>
           </div>
 

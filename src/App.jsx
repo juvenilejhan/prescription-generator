@@ -61,20 +61,20 @@ export default function App() {
       <div className="layout">
         <div className="form-panel">
           <PatientForm patient={patient} onChange={updatePatient} />
+          <MedicineForm
+            medicine={draftMedicine}
+            onChange={updateDraftMedicine}
+            onAdd={addMedicine}
+          />
           <ChiefComplaintForm
             value={chiefComplaint}
             onChange={setChiefComplaint}
           />
           <ExaminationForm value={examination} onChange={setExamination} />
           <HistoryForm value={history} onChange={setHistory} />
-          <AdviceForm value={advice} onChange={setAdvice} />
           <DiagnosisForm value={diagnosis} onChange={setDiagnosis} />
+          <AdviceForm value={advice} onChange={setAdvice} />
           <FollowUpForm value={followUp} onChange={setFollowUp} />
-          <MedicineForm
-            medicine={draftMedicine}
-            onChange={updateDraftMedicine}
-            onAdd={addMedicine}
-          />
           <ActionButtons onPrint={handlePrint} />
         </div>
 
