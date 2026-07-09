@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  font-family: var(--font-bn-serif);
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+.rx-rule {
+  height: 2px;
+  margin: 12px 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--gold) 15%,
+    var(--gold) 85%,
+    transparent
+  );
+}
+
+.center-name{
+    color: var(--teal);
+    font-weight: 900;
+}
+
+.center-address{
+    color: #470e21;
+    font-size: 0.8rem;
+}

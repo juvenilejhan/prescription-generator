@@ -3,6 +3,7 @@ import PatientInfoBar from "./PatientInfoBar";
 import PrescriptionBody from "./PrescriptionBody";
 import Signature from "./Signature";
 import "./PrescriptionPad.css";
+import Footer from "../Footer/Footer";
 
 export default function PrescriptionPad({
   patient,
@@ -29,7 +30,8 @@ export default function PrescriptionPad({
         medicines={medicines}
         onRemoveMedicine={onRemoveMedicine}
       />
-      <Signature />
+      {/* <Signature /> */}
+      <Footer />
     </div>
   );
 }
