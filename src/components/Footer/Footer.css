@@ -1,8 +1,17 @@
+/* .footer{
+    margin-top: 200px;
+} */
 .container {
   display: flex;
   gap: 20px;
   justify-content: center;
   font-family: var(--font-bn-serif);
+  margin-top: 1px;
+}
+
+.full-address p{
+    padding: 0;
+    line-height: 1.2;
 }
 
 img {
@@ -10,9 +19,9 @@ img {
   height: auto;
 }
 
-.rx-rule {
+.rx-rule-footer {
   height: 2px;
-  margin: 12px 0;
+  /* margin: 12px 0; */
   background: linear-gradient(
     to right,
     transparent,
@@ -24,7 +33,6 @@ img {
 
 .center-name{
     color: var(--teal);
-    font-weight: 900;
 }
 
 .center-address{

@@ -3,8 +3,8 @@ import logo from "../../../public/logo.jpg";
 
 export default function Footer() {
   return (
-    <>
-      <div className="rx-rule" />
+    <footer className="footer">
+      <div className="rx-rule-footer" />
       <div class="container">
         <img src={logo} alt="" />
         <div class="full-address">
@@ -22,6 +22,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </>
+    </footer>
   );
 }

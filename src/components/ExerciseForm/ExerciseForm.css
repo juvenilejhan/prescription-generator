@@ -1,0 +1,23 @@
+.med-row {
+  border: 1px solid var(--paper-line);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #fff;
+  position: relative;
+}
+
+.add-med-btn {
+  width: 100%;
+  border: 1px dashed var(--sage);
+  border-radius: 6px;
+  background: none;
+  color: var(--teal);
+  padding: 9px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.add-med-btn:hover {
+  background: rgba(11, 93, 82, 0.05);
+}

@@ -38,9 +38,9 @@
 }
 
 .rx-doc-name {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 900;
-  color: var(--ink);
+  /* color: var(--ink); */
   margin: 0 0 4px;
   color: #470e21;
 }
@@ -69,7 +69,7 @@
 
 .rx-affiliation {
   font-size: 11px;
-  color: var(--ink-faint);
+  /* color: var(--ink-faint); */
   margin: 8px 0 0;
   /* font-style: italic; */
   color: #0b5d52;
