@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="rx-rule-footer" />
-      <div class="container">
+      <div className="container">
         <img src={logo} alt="" />
-        <div class="full-address">
+        <div className="full-address">
           <p>
             <span className="center-name">
               ফিট অ্যান্ড ফাইন ফিজিওথেরাপি অ্যান্ড রিহ্যাবিলিটেশন সেন্টার

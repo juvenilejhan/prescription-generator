@@ -9,10 +9,12 @@ import AdviceForm from "./components/AdviceForm/AdviceForm";
 import DiagnosisForm from "./components/DiagnosisForm/DiagnosisForm";
 import FollowUpForm from "./components/FollowUpForm/FollowUpForm";
 import MedicineForm from "./components/MedicineForm/MedicineForm";
+import ExerciseForm from "./components/ExerciseForm/ExerciseForm";
 import ActionButtons from "./components/ActionButtons/ActionButtons";
 import PrescriptionPad from "./components/PrescriptionPad/PrescriptionPad";
 
 import { emptyMedicine, todayISO } from "./utils/prescription";
+import { emptyExercise } from "./utils/therapyOptions";
 import "./App.css";
 
 export default function App() {
@@ -30,16 +32,19 @@ export default function App() {
   const [diagnosis, setDiagnosis] = useState("");
   const [followUp, setFollowUp] = useState("");
 
-  // `draftMedicine` is the single composer field set in the form panel.
-  // `medicines` is the committed list that actually appears on the
-  // prescription — an entry only lands there once "Add medicine" is
-  // clicked.
+  // Medicine States
   const [draftMedicine, setDraftMedicine] = useState(emptyMedicine());
   const [medicines, setMedicines] = useState([]);
 
+  // Exercise States
+  const [draftExercise, setDraftExercise] = useState(emptyExercise());
+  const [exercises, setExercises] = useState([]);
+
+  // Patient Handler
   const updatePatient = (key, value) =>
     setPatient((p) => ({ ...p, [key]: value }));
 
+  // Medicine Handlers
   const updateDraftMedicine = (key, value) =>
     setDraftMedicine((d) => ({ ...d, [key]: value }));
 
@@ -52,6 +57,19 @@ export default function App() {
   const removeMedicine = (id) =>
     setMedicines((list) => list.filter((m) => m.id !== id));
 
+  // Exercise Handlers
+  const updateDraftExercise = (key, value) =>
+    setDraftExercise((d) => ({ ...d, [key]: value }));
+
+  const addExercise = () => {
+    if (draftExercise.name.trim() === "") return;
+    setExercises((list) => [...list, draftExercise]);
+    setDraftExercise(emptyExercise());
+  };
+
+  const removeExercise = (id) =>
+    setExercises((list) => list.filter((ex) => ex.id !== id));
+
   const handlePrint = () => window.print();
 
   return (
@@ -61,6 +79,11 @@ export default function App() {
       <div className="layout">
         <div className="form-panel">
           <PatientForm patient={patient} onChange={updatePatient} />
+          <ExerciseForm
+            exercise={draftExercise}
+            onChange={updateDraftExercise}
+            onAdd={addExercise}
+          />
           <MedicineForm
             medicine={draftMedicine}
             onChange={updateDraftMedicine}
@@ -89,6 +112,8 @@ export default function App() {
             followUp={followUp}
             medicines={medicines}
             onRemoveMedicine={removeMedicine}
+            exercises={exercises}
+            onRemoveExercise={removeExercise}
           />
         </div>
       </div>

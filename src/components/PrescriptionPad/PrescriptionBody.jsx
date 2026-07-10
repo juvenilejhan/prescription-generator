@@ -10,14 +10,18 @@ export default function PrescriptionBody({
   followUp,
   medicines,
   onRemoveMedicine,
+  exercises,
+  onRemoveExercise,
 }) {
   const filledMedicines = medicines.filter((m) => m.name.trim() !== "");
+  const filledExercises = exercises.filter((ex) => ex.name.trim() !== "");
 
   return (
     <div className="rx-body">
       <div className="rx-watermark">℞</div>
 
       <div className="rx-body-grid">
+        {/* LEFT COLUMN */}
         <div className="rx-body-left">
           <div className="rx-section rx-section--tight">
             <p className="k">C/C</p>
@@ -39,7 +43,6 @@ export default function PrescriptionBody({
               {history || <span className="rx-empty">Not specified</span>}
             </p>
           </div>
-
           <div className="rx-section rx-section--tight">
             <p className="k">Diagnosis</p>
             <p className="v">
@@ -52,7 +55,6 @@ export default function PrescriptionBody({
               {advice || <span className="rx-empty">None</span>}
             </p>
           </div>
-
           <div className="rx-section rx-section--tight">
             <p className="k">Follow-up</p>
             <p className="v">
@@ -65,7 +67,50 @@ export default function PrescriptionBody({
           </div>
         </div>
 
+        {/* RIGHT COLUMN */}
         <div className="rx-body-right">
+          {/* --- NEW: PHYSICAL THERAPY SECTION --- */}
+          <div className="rx-section">
+            <p className="k">Physical Therapy</p>
+            {filledExercises.length === 0 ? (
+              <p className="rx-empty">No exercises added</p>
+            ) : (
+              <ul className="rx-med-list">
+                {filledExercises.map((ex, i) => (
+                  <li className="rx-med-item" key={ex.id}>
+                    <span className="rx-med-num">{i + 1}.</span>
+                    <div className="rx-med-content">
+                      <div className="rx-med-name">{ex.name}</div>
+                      <div className="rx-med-detail">
+                        {[
+                          ex.side,
+                          ex.position,
+                          ex.type,
+                          ex.sets && ex.reps ? `${ex.sets} × ${ex.reps}` : null,
+                          ex.holdTime,
+                          ex.frequency,
+                          ex.duration,
+                          ex.note,
+                        ]
+                          .filter(Boolean)
+                          .join(" · ")}
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      className="rx-med-remove"
+                      onClick={() => onRemoveExercise(ex.id)}
+                      aria-label={`Remove ${ex.name}`}
+                    >
+                      Remove
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {/* --- EXISTING: MEDICINES SECTION --- */}
           <div className="rx-section">
             <p className="k">Medicines</p>
             {filledMedicines.length === 0 ? (

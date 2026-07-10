@@ -1,4 +1,4 @@
-.med-row {
+.exercise-form .med-row {
   border: 1px solid var(--paper-line);
   border-radius: 8px;
   padding: 12px;
@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.add-med-btn {
+.exercise-form .add-med-btn {
   width: 100%;
   border: 1px dashed var(--sage);
   border-radius: 6px;
@@ -16,8 +16,13 @@
   padding: 9px;
   font-size: 13px;
   font-weight: 500;
+  cursor: pointer;
 }
 
-.add-med-btn:hover {
+.exercise-form .add-med-btn:hover {
   background: rgba(11, 93, 82, 0.05);
+}
+
+.exercise-form .field-row > .field {
+  flex: 1;
 }

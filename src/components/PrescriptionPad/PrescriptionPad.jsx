@@ -15,6 +15,8 @@ export default function PrescriptionPad({
   followUp,
   medicines,
   onRemoveMedicine,
+  exercises, // ADD THIS
+  onRemoveExercise, // ADD THIS
 }) {
   return (
     <div className="rx-pad">
@@ -29,6 +31,8 @@ export default function PrescriptionPad({
         followUp={followUp}
         medicines={medicines}
         onRemoveMedicine={onRemoveMedicine}
+        exercises={exercises} // ADD THIS
+        onRemoveExercise={onRemoveExercise} // ADD THIS
       />
       {/* <Signature /> */}
       <Footer />
