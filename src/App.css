@@ -29,9 +29,45 @@
   padding: 40px;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   background: var(--panel);
 }
 
+/* Preview panel's own box stretches to match the taller form panel —
+   this is what gives the sticky child room to "travel" while scrolling. */
+.preview-panel.sticky-enabled {
+  align-self: stretch;
+}
+
+/* Wrapper stays content-sized (checkbox + prescription only), so it
+   can sit anywhere within the now-tall preview-panel box. */
+.preview-sticky-wrap {
+  width: 100%;
+  max-width: 700px;
+}
+
+.preview-sticky-wrap.sticky {
+  position: sticky;
+  top: 20px;
+}
+
+.sticky-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+/* Disable sticky on narrow screens — form and preview stack vertically
+   there, so pinning the preview mid-scroll doesn't make sense. */
+@media (max-width: 860px) {
+  .preview-sticky-wrap.sticky {
+    position: static;
+  }
+}
 
 @page {
   size: A4;
@@ -40,6 +76,10 @@
 
 @media print {
   .form-panel {
+    display: none !important;
+  }
+
+  .sticky-toggle {          /* NEW */
     display: none !important;
   }
 

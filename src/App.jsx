@@ -46,6 +46,9 @@ export default function App() {
   const [draftModality, setDraftModality] = useState(emptyModality());
   const [modalities, setModalities] = useState([]);
 
+  //sticky
+  const [stickyPreview, setStickyPreview] = useState(false);
+
   // Handlers
   const updatePatient = (key, value) =>
     setPatient((p) => ({ ...p, [key]: value }));
@@ -120,22 +123,37 @@ export default function App() {
           <ActionButtons onPrint={handlePrint} />
         </div>
 
-        <div className="preview-panel">
-          <PrescriptionPad
-            patient={patient}
-            chiefComplaint={chiefComplaint}
-            examination={examination}
-            history={history}
-            advice={advice}
-            diagnosis={diagnosis}
-            followUp={followUp}
-            medicines={medicines}
-            onRemoveMedicine={removeMedicine}
-            exercises={exercises}
-            onRemoveExercise={removeExercise}
-            modalities={modalities} // NEW
-            onRemoveModality={removeModality} // NEW
-          />
+        <div
+          className={`preview-panel ${stickyPreview ? "sticky-enabled" : ""}`}
+        >
+          <div
+            className={`preview-sticky-wrap ${stickyPreview ? "sticky" : ""}`}
+          >
+            <label className="sticky-toggle">
+              <input
+                type="checkbox"
+                checked={stickyPreview}
+                onChange={(e) => setStickyPreview(e.target.checked)}
+              />
+              Keep prescription visible while scrolling
+            </label>
+
+            <PrescriptionPad
+              patient={patient}
+              chiefComplaint={chiefComplaint}
+              examination={examination}
+              history={history}
+              advice={advice}
+              diagnosis={diagnosis}
+              followUp={followUp}
+              medicines={medicines}
+              onRemoveMedicine={removeMedicine}
+              exercises={exercises}
+              onRemoveExercise={removeExercise}
+              modalities={modalities}
+              onRemoveModality={removeModality}
+            />
+          </div>
         </div>
       </div>
     </div>
