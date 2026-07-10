@@ -5,6 +5,7 @@ import Signature from "./Signature";
 import "./PrescriptionPad.css";
 import Footer from "../Footer/Footer";
 
+// At the top of the function:
 export default function PrescriptionPad({
   patient,
   chiefComplaint,
@@ -15,8 +16,10 @@ export default function PrescriptionPad({
   followUp,
   medicines,
   onRemoveMedicine,
-  exercises, // ADD THIS
-  onRemoveExercise, // ADD THIS
+  exercises,
+  onRemoveExercise,
+  modalities, // ADD THIS
+  onRemoveModality, // ADD THIS
 }) {
   return (
     <div className="rx-pad">
@@ -33,6 +36,8 @@ export default function PrescriptionPad({
         onRemoveMedicine={onRemoveMedicine}
         exercises={exercises} // ADD THIS
         onRemoveExercise={onRemoveExercise} // ADD THIS
+        modalities={modalities}
+        onRemoveModality={onRemoveModality}
       />
       {/* <Signature /> */}
       <Footer />

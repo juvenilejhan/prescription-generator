@@ -12,9 +12,12 @@ export default function PrescriptionBody({
   onRemoveMedicine,
   exercises,
   onRemoveExercise,
+  modalities, // NEW
+  onRemoveModality, // NEW
 }) {
   const filledMedicines = medicines.filter((m) => m.name.trim() !== "");
   const filledExercises = exercises.filter((ex) => ex.name.trim() !== "");
+  const filledModalities = modalities.filter((mod) => mod.name.trim() !== ""); // NEW
 
   return (
     <div className="rx-body">
@@ -69,48 +72,117 @@ export default function PrescriptionBody({
 
         {/* RIGHT COLUMN */}
         <div className="rx-body-right">
-          {/* --- NEW: PHYSICAL THERAPY SECTION --- */}
+          {/* --- PHYSICAL THERAPY (Contains Exercises & Modalities) --- */}
           <div className="rx-section">
             <p className="k">Physical Therapy</p>
-            {filledExercises.length === 0 ? (
-              <p className="rx-empty">No exercises added</p>
+
+            {filledExercises.length === 0 && filledModalities.length === 0 ? (
+              <p className="rx-empty">No physical therapy added</p>
             ) : (
-              <ul className="rx-med-list">
-                {filledExercises.map((ex, i) => (
-                  <li className="rx-med-item" key={ex.id}>
-                    <span className="rx-med-num">{i + 1}.</span>
-                    <div className="rx-med-content">
-                      <div className="rx-med-name">{ex.name}</div>
-                      <div className="rx-med-detail">
-                        {[
-                          ex.side,
-                          ex.position,
-                          ex.type,
-                          ex.sets && ex.reps ? `${ex.sets} × ${ex.reps}` : null,
-                          ex.holdTime,
-                          ex.frequency,
-                          ex.duration,
-                          ex.note,
-                        ]
-                          .filter(Boolean)
-                          .join(" · ")}
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      className="rx-med-remove"
-                      onClick={() => onRemoveExercise(ex.id)}
-                      aria-label={`Remove ${ex.name}`}
+              <>
+                {/* Exercises Sub-section */}
+                {filledExercises.length > 0 && (
+                  <div>
+                    <p
+                      style={{
+                        fontSize: "0.75rem",
+                        fontWeight: "600",
+                        marginBottom: "4px",
+                        color: "#555",
+                      }}
                     >
-                      Remove
-                    </button>
-                  </li>
-                ))}
-              </ul>
+                      Exercises:
+                    </p>
+                    <ul className="rx-med-list">
+                      {filledExercises.map((ex, i) => (
+                        <li className="rx-med-item" key={ex.id}>
+                          <span className="rx-med-num">{i + 1}.</span>
+                          <div className="rx-med-content">
+                            <div className="rx-med-name">{ex.name}</div>
+                            <div className="rx-med-detail">
+                              {[
+                                ex.side,
+                                ex.position,
+                                ex.type,
+                                ex.sets && ex.reps
+                                  ? `${ex.sets} × ${ex.reps}`
+                                  : null,
+                                ex.holdTime,
+                                ex.frequency,
+                                ex.duration,
+                                ex.note,
+                              ]
+                                .filter(Boolean)
+                                .join(" · ")}
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            className="rx-med-remove"
+                            onClick={() => onRemoveExercise(ex.id)}
+                            aria-label={`Remove ${ex.name}`}
+                          >
+                            Remove
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Modalities Sub-section */}
+                {filledModalities.length > 0 && (
+                  <div
+                    style={{
+                      marginBottom: filledExercises.length > 0 ? "12px" : "0",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontSize: "0.75rem",
+                        fontWeight: "600",
+                        marginBottom: "4px",
+                        color: "#555",
+                      }}
+                    >
+                      Modalities:
+                    </p>
+                    <ul className="rx-med-list">
+                      {filledModalities.map((mod) => (
+                        <li className="rx-med-item" key={mod.id}>
+                          <span className="rx-med-num">•</span>
+                          <div className="rx-med-content">
+                            <div className="rx-med-name">{mod.name}</div>
+                            <div className="rx-med-detail">
+                              {[
+                                mod.area,
+                                mod.mode,
+                                mod.intensity,
+                                mod.duration,
+                                mod.frequency,
+                              ]
+                                .filter(Boolean)
+                                .join(" · ")}
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            className="rx-med-remove"
+                            onClick={() => onRemoveModality(mod.id)}
+                            aria-label={`Remove ${mod.name}`}
+                          >
+                            Remove
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </>
             )}
           </div>
 
-          {/* --- EXISTING: MEDICINES SECTION --- */}
+          {/* --- MEDICINES SECTION --- */}
           <div className="rx-section">
             <p className="k">Medicines</p>
             {filledMedicines.length === 0 ? (
