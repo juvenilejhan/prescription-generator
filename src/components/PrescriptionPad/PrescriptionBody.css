@@ -1,7 +1,7 @@
 .rx-body {
   position: relative;
   margin-top: 16px;
-  min-height: 670px;
+  /* min-height: 670px; */
 }
 
 .rx-watermark {

@@ -43,7 +43,7 @@
    can sit anywhere within the now-tall preview-panel box. */
 .preview-sticky-wrap {
   width: 100%;
-  max-width: 700px;
+  max-width: 210mm;
 }
 
 .preview-sticky-wrap.sticky {

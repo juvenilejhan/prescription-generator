@@ -1,12 +1,17 @@
 .rx-pad {
-  width: 100%;
-  max-width: 700px;
+  width: 210mm;
+  max-width: 100%;
+  min-height: 297mm;
+  box-sizing: border-box;
   background: var(--paper);
   border: 1px solid var(--paper-line);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-  padding: 40px 44px;
+  padding: 12mm 12mm;
+  margin: 0 auto;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Every piece of filled-in text on the pad (patient fields, diagnosis,
@@ -19,16 +24,23 @@
   hyphens: auto;
 }
 
+/* None of the top-level blocks should compress to force-fit —
+   they keep their natural height. */
+.rx-pad > * {
+  flex-shrink: 0;
+}
+
+/* Pins the footer to the bottom: it eats all the leftover vertical
+   space above itself. Short content → the gap opens up here, which
+   is exactly the therapist's hand-writing area. Long content → this
+   resolves to 0 and the footer just follows normally. */
+.rx-pad > .footer {
+  margin-top: auto;
+}
+
 @media print {
   .rx-pad {
     box-shadow: none;
     border: none;
-    max-width: none;
-    width: 210mm;
-    min-height: 297mm;
-    box-sizing: border-box;
-    padding: 12mm 12mm;
-    margin: 0 auto;
-    overflow: visible;
   }
 }
